@@ -70,7 +70,7 @@ var fillExt = function(creep)
 
 var findCont = function(creep)
 {
-    var ext = decode.spawn(creep).room.find(FIND_MY_STRUCTURES, { filter: {structureType: STRUCTURE_CONTAINER} });
+    var ext = decode.spawn(creep).room.find(FIND_STRUCTURES, { filter: {structureType: STRUCTURE_CONTAINER} });
     var min = 1;
     var str = undefined;
     for (var i in ext)

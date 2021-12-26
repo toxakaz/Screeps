@@ -92,8 +92,23 @@ var roleRepair =
             roleControllerUpdater.run(creep);
         else if (creep.memory.fill)
         {
-            var spawn = decode.spawn(creep);
-            var dif = spawn.store[RESOURCE_ENERGY] - spawn.memory["minres"];
+            var spawn = decode.spawn(creep).room.find(FIND_STRUCTURES, { filter: {structureType: STRUCTURE_CONTAINER} });
+
+            for (var i in spawn)
+            {
+                spawn = spawn[i];
+                break;
+            }
+
+            if (spawn == undefined)
+                spawn = decode.spawn(creep);
+
+            var dif;
+            if ((spawn.memory == undefined) || !spawn.memory.hasOwnProperty("minres"))
+                dif = 1;
+            else
+                dif = spawn.store[RESOURCE_ENERGY] - spawn.memory["minres"];
+                
             if (dif > 0)
             {
                 if (creep.withdraw(spawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
