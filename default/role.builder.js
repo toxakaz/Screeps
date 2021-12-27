@@ -64,12 +64,18 @@ var roleBuilder =
                 spawn = spawn[i];
                 break;
             }
-            
+
             if (spawn == undefined)
                 spawn = decode.spawn(creep);
+
             var dif;
             if ((spawn.memory == undefined) || !spawn.memory.hasOwnProperty("minres"))
-                dif = 1;
+            {
+                if (spawn.store.getUsedCapacity(RESOURCE_ENERGY) == 0)
+                    dif = 0;
+                else
+                    dif = 1;
+            }
             else
                 dif = spawn.store[RESOURCE_ENERGY] - spawn.memory["minres"];
 

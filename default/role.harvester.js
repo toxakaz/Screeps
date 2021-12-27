@@ -92,6 +92,11 @@ var fillCont = function(creep)
         return true;
     if (creep.memory.dir == 0)
         creep.memory.dir = findCont(creep).id;
+    if ((findExt(creep) != undefined) || (decode.spawn(creep).store.getFreeCapacity(RESOURCE_ENERGY) > 0))
+    {
+        creep.memory.dir = 0;
+        return false;
+    }
     var ext = Game.getObjectById(creep.memory.dir);
     if (extFillId(ext) == 1)
     {
