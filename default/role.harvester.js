@@ -12,7 +12,7 @@ var fillSpawn = function(creep)
     if (spawn.store.getFreeCapacity(RESOURCE_ENERGY) > 0)
     {
         if(creep.transfer(spawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-            creep.moveTo(spawn, {reusePath: 0});
+            creep.moveTo(spawn);
         return false;
     }
     return true;
@@ -64,7 +64,7 @@ var fillExt = function(creep)
     }
 
     if(creep.transfer(ext, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-        creep.moveTo(ext, {reusePath: 0});
+        creep.moveTo(ext);
     return false;
 }
 
@@ -110,7 +110,7 @@ var fillCont = function(creep)
     }
 
     if(creep.transfer(ext, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-        creep.moveTo(ext, {reusePath: 0});
+        creep.moveTo(ext);
     return false;
 }
 
@@ -129,7 +129,7 @@ var roleHarvester =
                 return;
             var room = decode.room(creep);
             if (room != creep.room)
-                creep.moveTo(new RoomPosition(25, 25, creep.memory.room), {reusePath: 0});
+                creep.moveTo(new RoomPosition(25, 25, creep.memory.room));
             else
             {
                 var sources;
@@ -142,7 +142,7 @@ var roleHarvester =
                 source = Game.getObjectById(creep.memory.dir);
 
                 if(creep.harvest(source) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(source, {reusePath: 0});
+                    creep.moveTo(source);
             }
 
             if (creep.store.getFreeCapacity(RESOURCE_ENERGY) <= 0)
@@ -164,7 +164,7 @@ var roleHarvester =
             if (fillExt(creep))
             if (fillSpawn(creep))
             if (fillCont(creep))
-            creep.moveTo(Game.flags.AFK, {reusePath: 0});
+            creep.moveTo(Game.flags.AFK);
         }
     }
 };

@@ -83,10 +83,10 @@ var roleBuilder =
             {
                 var key = creep.withdraw(spawn, RESOURCE_ENERGY);
                 if (key == ERR_NOT_IN_RANGE)
-                    creep.moveTo(spawn, {reusePath: 0});
+                    creep.moveTo(spawn);
             }
             else
-                creep.moveTo(Game.flags.AFK, {reusePath: 0});
+                creep.moveTo(Game.flags.AFK);
 
             if (creep.store.getFreeCapacity(RESOURCE_ENERGY) == 0)
                 creep.memory.fill = false;
@@ -94,7 +94,7 @@ var roleBuilder =
         else
         {
             if (creep.build(site) == ERR_NOT_IN_RANGE)
-                creep.moveTo(site, {reusePath: 0});
+                creep.moveTo(site);
             if (creep.store.getUsedCapacity(RESOURCE_ENERGY) == 0)
                 creep.memory.fill = true;
         }

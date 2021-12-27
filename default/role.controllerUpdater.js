@@ -36,10 +36,10 @@ var roleControllerUpdater =
             if(dif > 0)
             {
                 if (creep.withdraw(spawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(spawn, {reusePath: 0});
+                    creep.moveTo(spawn);
             }
             else
-                creep.moveTo(Game.flags.AFK, {reusePath: 0});
+                creep.moveTo(Game.flags.AFK);
 
             if (creep.store.getFreeCapacity(RESOURCE_ENERGY) == 0)
                 creep.memory.fill = false;
@@ -48,7 +48,7 @@ var roleControllerUpdater =
         {
             var controler = decode.room(creep).controller;
             if (creep.upgradeController(controler) == ERR_NOT_IN_RANGE)
-                creep.moveTo(controler, {reusePath: 0});
+                creep.moveTo(controler);
             if (creep.store.getUsedCapacity(RESOURCE_ENERGY) == 0)
                 creep.memory.fill = true;
         }
