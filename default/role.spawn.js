@@ -58,8 +58,8 @@ var roleSpawn =
     {
         MakeRoles();
         if (Create(spawn, "harvester", "W7N8", 2, [WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY]))
-        if (Create(spawn, "harvester", "W8N8", 12, [WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY]))
-        if (Create(spawn, "harvester", "W7N9", 12, [WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY]))
+        if (Create(spawn, "harvester", "W8N8", 12, [WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY]))
+        if (Create(spawn, "harvester", "W7N9", 12, [WORK, WORK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY]))
         if (Create(spawn, "builder", "W7N8", 5, [WORK, WORK, MOVE, MOVE, CARRY, CARRY]))
         if (Create(spawn, "repair", "W7N8", 2, [WORK, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY]))
         if (Create(spawn, "controllerUpdater", "W7N8", 1, [WORK, MOVE, CARRY]))
