@@ -117,10 +117,10 @@ var roleRepair =
             if (dif > 0)
             {
                 if (creep.withdraw(spawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                    creep.moveTo(spawn);
+                    creep.moveTo(spawn, {reusePath: 0});
             }
             else
-                creep.moveTo(Game.flags.AFK);
+                creep.moveTo(Game.flags.AFK, {reusePath: 0});
 
             if (creep.store.getFreeCapacity(RESOURCE_ENERGY) == 0)
                 creep.memory.fill = false;
@@ -128,7 +128,7 @@ var roleRepair =
         else
         {
             if (creep.repair(site) == ERR_NOT_IN_RANGE)
-                creep.moveTo(site);
+                creep.moveTo(site, {reusePath: 0});
             if (creep.store.getUsedCapacity(RESOURCE_ENERGY) == 0)
                 creep.memory.fill = true;
         }
